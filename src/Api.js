@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 
+// component to get the coins list
+
 class Api extends Component {
   
+    // constructor and initialisation
     constructor(){
         super();
         this.state = {
@@ -11,6 +14,7 @@ class Api extends Component {
     }
 
     componentDidMount(){
+        // API
         fetch('https://api.coingecko.com/api/v3/coins/list')
         .then(response => response.json())
         .then(json => {
@@ -19,23 +23,26 @@ class Api extends Component {
                 items: json
             })
         });
-        
     }
 
+    // display
     render(){
         var {isLoaded, items} = this.state;
+
+        // page not loaded
         if(!isLoaded){
             return <div>Loading...</div>
         }
+        // page loaded
         else{
             return (
                 <div className="api">
                     <ol>
-                    {items.map(item => (
-                        <li key={item.id}>
-                            Name: {item.name} | ID: {item.id}
-                        </li>
-                    ))}
+                        {items.map(item => (
+                            <li key={item.id}>
+                                Name: {item.name} | ID: {item.id}
+                            </li>
+                        ))}
                     </ol>
                 </div>
             )
