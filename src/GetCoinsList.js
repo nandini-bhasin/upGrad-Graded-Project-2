@@ -29,8 +29,6 @@ class GetCoinsList extends Component {
     // display
     render(){
         var {isLoaded, items} = this.state;
-        // var name = this.props.name;
-        // var btnClicked = this.props.btnClicked;
 
         // page not loaded
         if(!isLoaded){
@@ -41,8 +39,6 @@ class GetCoinsList extends Component {
             return(
                 <Heading items = {items}/>
             )
-            
-            
         }
         
     }

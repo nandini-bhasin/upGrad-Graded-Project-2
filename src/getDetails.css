@@ -1,37 +1,22 @@
+/* Heading of coin details including name and symbol */
 .coinHeader {
     background-color: #599FA1;
     font-size: x-large;
 }
 
+/* heading text as a link */
 .coinHeader a{
     color: black;
     text-decoration: none;
     font-weight: 500;
 }
 
-.left-panel {
-    border: 2px solid black;
-    font-weight: 500;
-}
-
-.left-panel img{
-    max-width: 90%;
-    margin: 1em auto;
-}
-
-.left-panel ul {
-    list-style-type: none;
-    padding: 1em;
-}
-
+/* entire body of the coin details */
 .coinBody {
     background-color: #CEF8FF;
 }
 
-.side-details {
-    border-top: 2px solid black;
-}
-
+/* coin description */
 .description {
     margin: 3em auto;
 }

@@ -40,29 +40,30 @@ class GetDetails extends Component {
         else{
             return (
                 <div className="api">
+                    {/* Coin header displaying coin name and symbol */}
                     <header className="coinHeader">
                         <a href={details.links.homepage[0]}>{details.name} - {details.symbol}</a>
                     </header>
 
+                    {/* Coin details body */}
                     <div className="container-fluid coinBody">
                         <div className="row">
                             <div className="col-sm-3">
+                                {/* left side panel of the body */}
                                 <Body details={details}/>
                             </div>
                             <div className="col-sm-9">
                                 <div className="container description">
+                                    {/* displaying the description as HTML */}
                                     <div dangerouslySetInnerHTML={{ __html: details.description.en }} />
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             )
         }
-        
     }
-
 }
 
 export default GetDetails;

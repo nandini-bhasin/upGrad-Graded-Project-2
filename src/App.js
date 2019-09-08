@@ -1,12 +1,17 @@
 import React from 'react';
 import './App.css';
-import Heading from './Heading.js';
-import Main from './Main.js';
+import GetCoinsList from './GetCoinsList.js';
 
 function App() {
   return (
     <div className="App">
-      <Main/>
+      <div className="headingStyles">
+        {/* Title */}
+          <h1>Crypto Wiki</h1>
+            
+          <GetCoinsList/>
+  
+        </div>
     </div>
   );
 }
