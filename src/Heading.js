@@ -36,31 +36,15 @@ class Heading extends Component {
   }
 
   buttonHandler = (e) => {
-    this.setState({btnClicked: true});
+    const state = this.state;
+    this.setState({btnClicked: !state.btnClicked});
     console.log(this.state);
   }
 
 
   render(){
     const {name, btnClicked} = this.state;
-    // if(!btnClicked){
-    //   return(
-    //     <div className="headingStyles">
-    //     {/* Title */}
-    //     <h1>CryptoCoin Wiki</h1>
-    //     {/* form */}
-    //     <div className="input-group input-group-sm">
-    //       <input type="text" placeholder="Enter the Crypto Currency name" name="name" id="name" className="form-control" onChange={this.inputChangeHandler}/>
-    //       <button className="btn btn-success btn-sm" onClick={this.buttonHandler}>Get Info about coin</button>
-    //     </div>
-  
-    //     <GetCoinsList/>
-  
-    //   </div>
-    //   )
-    // }
-
-    // else {
+   
       return(
         <div className="headingStyles">
         {/* Title */}
@@ -75,7 +59,6 @@ class Heading extends Component {
   
       </div>
       )
-    //}
     
   }
 

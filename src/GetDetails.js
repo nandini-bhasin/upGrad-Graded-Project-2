@@ -14,21 +14,21 @@ class GetDetails extends Component {
         };
     }
 
-    // componentDidMount(){
-        
-    //     fetch('https://api.coingecko.com/api/v3/coins/list')
-    //     .then(response => response.json())
-    //     .then(json => {
-    //         this.setState({
-    //             isLoaded: true,
-    //             items: json
-    //         })
-    //     });
-    // }
+    componentDidMount(){
+        var  url = 'https://api.coingecko.com/api/v3/coins/' + this.props.nameId;
+        fetch(url)
+        .then(response => response.json())
+        .then(json => {
+            this.setState({
+                isLoaded: true,
+                details: json
+            })
+        });
+    }
 
     // display
     render(){
-        var {isLoaded} = this.state;
+        var {details, isLoaded} = this.state;
 
         // page not loaded
         if(!isLoaded){
@@ -36,16 +36,13 @@ class GetDetails extends Component {
         }
         // page loaded
         else{
+            console.log(details);
             return (
                 <div className="api">
-                    <ol>
-                        {this.props.coinList.itemName.map(item => (
-                            <li>
-                                Name: {item} 
-                            </li>
-                        ))}
-                    </ol>
-                    name id: {this.props.nameId}
+
+                    <header>
+                        {details.name} - {details.symbol}
+                    </header>
                 </div>
             )
         }

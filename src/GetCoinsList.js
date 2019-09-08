@@ -14,11 +14,6 @@ class GetCoinsList extends Component {
         };
     }
 
-    buttonHandler(){
-        if(this.props.btnClicked)
-            alert("button clicked!");
-    }
-
     componentDidMount(){
         // API to find get the coins list 
         fetch('https://api.coingecko.com/api/v3/coins/list')
@@ -43,16 +38,16 @@ class GetCoinsList extends Component {
         }
         // page loaded
         else{
-            var itemName = [];
-            var itemId = [];
+            // var itemName = [];
+            // var itemId = [];
             var nameId = -1;
-            items.map(item => (
-                itemName.push(item.name),
-                itemId.push(item.id)
-            ))
+            // items.map(item => (
+            //     itemName.push(item.name),
+            //     itemId.push(item.id)
+            // ))
 
             for(var i=0; i<items.length; i++){
-                if(items[i].name==name){
+                if(items[i].name==name || items[i].id == name){
                     nameId = items[i].id;
                     break;
                 }
@@ -66,22 +61,23 @@ class GetCoinsList extends Component {
                 }else{
                     return (
                         <div className="api">
-                        <div>nameId: {nameId}</div>
-                            <ol>
-                                {items.map(item => (
-                                    <li key={item.id}>
-                                        Name: {item.name} | ID: {item.id}
-                                    </li>
-                                ))}
+                            {/* <div>nameId: {nameId}</div> */}
+                                {/* <ol>
+                                    {items.map(item => (
+                                        <li key={item.id}>
+                                            Name: {item.name} | ID: {item.id}
+                                        </li>
+                                    ))}
+                                    
+                                </ol> */}
                                 
-                            </ol>
+                            {/* <GetDetails coinList={{itemName, itemId}} name={name}/> */}
                             
-                        {/* <GetDetails coinList={{itemName, itemId}} name={name}/> */}
+                            <GetDetails nameId = {nameId}/>
                         </div>
                         
                             
                         
-                        // <GetDetails nameId = {nameId}/>
                     )
                 }
                 
