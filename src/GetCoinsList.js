@@ -38,13 +38,8 @@ class GetCoinsList extends Component {
         }
         // page loaded
         else{
-            // var itemName = [];
-            // var itemId = [];
+
             var nameId = -1;
-            // items.map(item => (
-            //     itemName.push(item.name),
-            //     itemId.push(item.id)
-            // ))
 
             for(var i=0; i<items.length; i++){
                 if(items[i].name==name || items[i].id == name){
@@ -59,25 +54,12 @@ class GetCoinsList extends Component {
                         <div>Sorry, the coin does not exist</div>
                     )
                 }else{
+                    nameId = -1;
                     return (
-                        <div className="api">
-                            {/* <div>nameId: {nameId}</div> */}
-                                {/* <ol>
-                                    {items.map(item => (
-                                        <li key={item.id}>
-                                            Name: {item.name} | ID: {item.id}
-                                        </li>
-                                    ))}
-                                    
-                                </ol> */}
-                                
-                            {/* <GetDetails coinList={{itemName, itemId}} name={name}/> */}
-                            
+                        <div className="api">                            
                             <GetDetails nameId = {nameId}/>
                         </div>
-                        
-                            
-                        
+                         
                     )
                 }
                 

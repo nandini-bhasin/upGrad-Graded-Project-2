@@ -15,19 +15,6 @@ class Heading extends Component {
     }
   }
 
-  // buttonHandler = (e) => {
-  //   const name = this.state;
-  //   let url = 'https://api.coingecko.com/api/v3/coins/' + name;
-  //   fetch(url)
-  //     .then(response => response.json())
-  //     .then(json => {
-  //         this.setState({
-  //             isLoaded: true,
-  //               items: json
-  //           })
-  //       });
-  // }
-
   inputChangeHandler = (e) => {
     const state = this.state;
     state[e.target.name] = e.target.value;
@@ -63,21 +50,5 @@ class Heading extends Component {
   }
 
 }
-
-// function Heading() {
-//   return (
-//     <div className="headingStyles">
-//       {/* Title */}
-//       <h1>CryptoCoin Wiki</h1>
-//       {/* form */}
-//       <div className="input-group input-group-sm">
-//         <input type="text" placeholder="Enter the Crypto Currency name" name="crypto" className="form-control"/>
-//         <button className="btn btn-success btn-sm">Get Info about coin</button>
-//       </div>
-
-//       <GetCoinsList />
-//     </div>
-//   );
-// }
 
 export default Heading;
