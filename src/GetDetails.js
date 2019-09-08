@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import './getDetails.css'
+import Body from './Body.js'
 
 // component to get the coins list
 
@@ -8,13 +10,13 @@ class GetDetails extends Component {
     constructor(){
         super();
         this.state = {
-            // items: props.itemName,
             details: [],
-            isLoaded: true
+            isLoaded: false
         };
     }
 
     componentDidMount(){
+        //API to get details of the coin entered
         var  url = 'https://api.coingecko.com/api/v3/coins/' + this.props.nameId;
         fetch(url)
         .then(response => response.json())
@@ -29,7 +31,7 @@ class GetDetails extends Component {
     // display
     render(){
         var {details, isLoaded} = this.state;
-
+        
         // page not loaded
         if(!isLoaded){
             return <div>Loading...</div>
@@ -39,10 +41,23 @@ class GetDetails extends Component {
             console.log(details);
             return (
                 <div className="api">
-
-                    <header>
-                        {details.name} - {details.symbol}
+                    <header className="coinHeader">
+                        <a href={details.links.homepage[0]}>{details.name} - {details.symbol}</a>
                     </header>
+
+                    <div className="container-fluid coinBody">
+                        <div className="row">
+                            <div className="col-sm-3">
+                                <Body details={details}/>
+                            </div>
+                            <div className="col-sm-9">
+                                <div className="container description">
+                                    <div dangerouslySetInnerHTML={{ __html: details.description.en }} />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             )
         }

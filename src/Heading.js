@@ -15,13 +15,14 @@ class Heading extends Component {
     }
   }
 
+  //To get value of input field
   inputChangeHandler = (e) => {
     const state = this.state;
     state[e.target.name] = e.target.value;
     this.setState(state);
-    console.log(this.state);
   }
 
+  //To set btnClicked as true in case the button is clicked
   buttonHandler = (e) => {
     const state = this.state;
     this.setState({btnClicked: !state.btnClicked});

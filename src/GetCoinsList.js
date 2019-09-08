@@ -41,20 +41,24 @@ class GetCoinsList extends Component {
 
             var nameId = -1;
 
+            //To find out the coin ID corresponding to the name / ID given
             for(var i=0; i<items.length; i++){
-                if(items[i].name==name || items[i].id == name){
+                if(items[i].name === name || items[i].id === name){
                     nameId = items[i].id;
                     break;
                 }
             }
 
+            //If the name given is final, i.e. button was clicked
             if(btnClicked){
-                if(nameId == -1){
+                //If the name wasn't found in the coin list
+                if(nameId === -1){
                     return(
                         <div>Sorry, the coin does not exist</div>
                     )
-                }else{
-                    nameId = -1;
+                }
+                //The name was found in the coin list
+                else{
                     return (
                         <div className="api">                            
                             <GetDetails nameId = {nameId}/>
@@ -64,6 +68,7 @@ class GetCoinsList extends Component {
                 }
                 
             }
+            //Button has not been clicked
             else {
                 return(
                     <div>Search for a coin</div>
