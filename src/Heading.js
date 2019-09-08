@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import './App.css';
 import './Heading.css';
-import GetCoinsList from './GetCoinsList';
+import GetId from './GetId.js';
+import ReactDOM from 'react-dom';
 
 // Component to display heading
 
@@ -24,9 +25,10 @@ class Heading extends Component {
 
   //To set btnClicked as true in case the button is clicked
   buttonHandler = (e) => {
+    const {name, btnClicked} = this.state;
     const state = this.state;
     this.setState({btnClicked: !state.btnClicked});
-    console.log(this.state);
+    ReactDOM.render(<GetId items={this.props.items} name={name} btnClicked={btnClicked}/>, document.getElementById('divGetId'));
   }
 
 
@@ -35,16 +37,15 @@ class Heading extends Component {
    
       return(
         <div className="headingStyles">
-        {/* Title */}
-        <h1>CryptoCoin Wiki</h1>
         {/* form */}
         <div className="input-group input-group-sm">
           <input type="text" placeholder="Enter the Crypto Currency name" name="name" id="name" className="form-control" onChange={this.inputChangeHandler}/>
           <button className="btn btn-success btn-sm" onClick={this.buttonHandler}>Get Info about coin</button>
         </div>
   
-        <GetCoinsList name={name} btnClicked={btnClicked}/>
-  
+        <div id="divGetId"></div>
+        {/* <GetId items={this.props.items} name={name} btnClicked={btnClicked}/> */}
+
       </div>
       )
     

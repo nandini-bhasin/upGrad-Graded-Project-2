@@ -38,7 +38,6 @@ class GetDetails extends Component {
         }
         // page loaded
         else{
-            console.log(details);
             return (
                 <div className="api">
                     <header className="coinHeader">

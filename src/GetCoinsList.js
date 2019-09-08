@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import GetDetails from './GetDetails.js'
+import Heading from './Heading.js';
 
 // component to get the coins list
 
@@ -29,8 +29,8 @@ class GetCoinsList extends Component {
     // display
     render(){
         var {isLoaded, items} = this.state;
-        var name = this.props.name;
-        var btnClicked = this.props.btnClicked;
+        // var name = this.props.name;
+        // var btnClicked = this.props.btnClicked;
 
         // page not loaded
         if(!isLoaded){
@@ -38,42 +38,10 @@ class GetCoinsList extends Component {
         }
         // page loaded
         else{
-
-            var nameId = -1;
-
-            //To find out the coin ID corresponding to the name / ID given
-            for(var i=0; i<items.length; i++){
-                if(items[i].name === name || items[i].id === name){
-                    nameId = items[i].id;
-                    break;
-                }
-            }
-
-            //If the name given is final, i.e. button was clicked
-            if(btnClicked){
-                //If the name wasn't found in the coin list
-                if(nameId === -1){
-                    return(
-                        <div>Sorry, the coin does not exist</div>
-                    )
-                }
-                //The name was found in the coin list
-                else{
-                    return (
-                        <div className="api">                            
-                            <GetDetails nameId = {nameId}/>
-                        </div>
-                         
-                    )
-                }
-                
-            }
-            //Button has not been clicked
-            else {
-                return(
-                    <div>Search for a coin</div>
-                )
-            }
+            return(
+                <Heading items = {items}/>
+            )
+            
             
         }
         
