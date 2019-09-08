@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import './App.css';
-import './Heading.css';
+import '../css/Heading.css';
 import GetId from './GetId.js';
 
 // Component to display heading - input form and some text

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './getDetails.css'
+import '../css/getDetails.css'
 import Body from './Body.js'
 
 // component to get the coins list

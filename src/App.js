@@ -1,6 +1,6 @@
 import React from 'react';
-import './App.css';
-import GetCoinsList from './GetCoinsList.js';
+import './css/App.css';
+import GetCoinsList from './js/GetCoinsList.js';
 
 function App() {
   return (
@@ -8,9 +8,7 @@ function App() {
       <div className="headingStyles">
         {/* Title */}
           <h1>Crypto Wiki</h1>
-            
           <GetCoinsList/>
-  
         </div>
     </div>
   );

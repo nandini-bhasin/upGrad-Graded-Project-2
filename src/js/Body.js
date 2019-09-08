@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import './App.css';
-import './body.css';
+import '../css/body.css';
 
 // Component to display the left side panel of the body of the details of a coin
 
